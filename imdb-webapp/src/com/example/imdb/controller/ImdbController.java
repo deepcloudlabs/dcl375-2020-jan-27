@@ -14,9 +14,6 @@ import com.example.imdb.entity.Movie;
 import com.example.imdb.model.CriteriaBean;
 import com.example.imdb.service.MovieService;
 
-/**
- * Servlet implementation class ImdbController
- */
 @WebServlet(urlPatterns = "/search")
 public class ImdbController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
