@@ -8,6 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Produces;
 import javax.inject.Named;
 
 import com.example.world.dao.WorldDao;
@@ -4742,6 +4743,9 @@ public class InMemoryWorldDao implements WorldDao {
 	}
 
 	@Override
+	@Produces
+	@Named("continents") // JSP: ${continents}
+	@ApplicationScoped
 	public Set<String> getAllContinents() {
 		return continents;
 	}
