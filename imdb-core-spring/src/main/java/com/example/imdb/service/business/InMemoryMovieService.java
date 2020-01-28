@@ -5,6 +5,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
+
 import com.example.imdb.entity.Director;
 import com.example.imdb.entity.Genre;
 import com.example.imdb.entity.Movie;
@@ -17,22 +24,27 @@ import com.example.imdb.service.SequenceService;
  * @author Binnur Kurt
  *
  */
+@Repository
+@Scope("singleton")
+@Lazy
 public class InMemoryMovieService implements MovieService {
 	private SequenceService sequenceSrv;
 	private Map<Integer, Movie> movies;
 	private Map<Integer, Genre> genres;
 	private Map<Integer, Director> directors;
 
+	@Autowired
 	public void setSequenceSrv(SequenceService sequenceSrv) {
 		this.sequenceSrv = sequenceSrv;
 	}
 
 	public InMemoryMovieService() {
+		System.out.println("InMemoryMovieService()");
 		movies = new ConcurrentHashMap<>();
 		genres = new ConcurrentHashMap<>();
 		directors = new ConcurrentHashMap<>();
 	}
-	
+	@PostConstruct
 	public void populate() {
 		sequenceSrv.nextId("movies", 256);
 		movies.put(1, new Movie(1, "500 Days Of Summer", 2009, "tt1022603"));

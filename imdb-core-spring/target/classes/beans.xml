@@ -5,9 +5,10 @@
    <bean id="sequenceSrv"
          class="com.example.imdb.service.business.SequenceServiceImpl"></bean>
    <bean id="movieSrv"
+         lazy-init="true"
          init-method="populate"
+         autowire="byType"
          class="com.example.imdb.service.business.InMemoryMovieService">
-      <property name="sequenceSrv" 
-                ref="sequenceSrv"></property>
+      
   </bean>
 </beans>

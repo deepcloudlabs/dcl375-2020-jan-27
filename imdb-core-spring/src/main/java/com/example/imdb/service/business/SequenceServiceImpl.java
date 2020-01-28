@@ -3,6 +3,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
+
 import com.example.imdb.service.SequenceService;
 
 /**
@@ -10,8 +13,14 @@ import com.example.imdb.service.SequenceService;
  * @author Binnur Kurt
  *
  */
+@Service
+@Scope("singleton")
 public class SequenceServiceImpl implements SequenceService {
 	private Map<String, AtomicLong> sequences = new ConcurrentHashMap<String, AtomicLong>();
+
+	public SequenceServiceImpl() {
+		System.out.println("SequenceServiceImpl()");
+	}
 
 	@Override
 	public long nextId(String sequenceName) {
