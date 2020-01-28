@@ -15,44 +15,39 @@ import com.example.service.RandomNumberService;
 import com.example.service.Strategy;
 import com.example.service.StrategyType;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Service
 public class SimpleLotteryService implements LotteryService {
 	@Autowired
 	@Strategy(StrategyType.FAST)
 	private RandomNumberService randomNumSrv;
-	
+
 	@Autowired
+	@Strategy(StrategyType.SECURE)
+	@Strategy(StrategyType.FAST)
 	private List<RandomNumberService> services;
 	private AtomicInteger counter = new AtomicInteger(0);
-	private int numOfImpls ;
-	
+	private int numOfImpls;
+
 	@PostConstruct
 	public void init() {
 		numOfImpls = services.size();
-		services.stream()
-		        //.map(service -> service.getClass())
-		        .map(Object::getClass)
-		        .map(Class::getSimpleName)
-		        .forEach(System.err::println);
+		services.stream().map(Object::getClass).map(Class::getSimpleName).forEach(System.err::println);
 	}
-	
+
 	@Override
 	public List<Integer> draw(int max, int size, boolean isSorted) {
-		return IntStream.generate(
-				     ()->services.get(counter.getAndIncrement()%numOfImpls).next(1, max))
-		         .distinct()
-		         .limit(size)
-		         .sorted()
-		         .boxed()
-		         .collect(Collectors.toList());
+		return IntStream.generate(() -> services.get(counter.getAndIncrement() % numOfImpls).next(1, max)).distinct()
+				.limit(size).sorted().boxed().collect(Collectors.toList());
 	}
 
 	@Override
 	public List<List<Integer>> draw(int max, int size, boolean isSorted, int length) {
-		return IntStream.range(0, length)
-		         .mapToObj( 
-		       i -> this.draw(max, size, isSorted))
-		         .collect(Collectors.toList());
+		return IntStream.range(0, length).mapToObj(i -> this.draw(max, size, isSorted)).collect(Collectors.toList());
 	}
 
 }

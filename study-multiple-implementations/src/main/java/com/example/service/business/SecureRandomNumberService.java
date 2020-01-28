@@ -9,6 +9,11 @@ import com.example.service.RandomNumberService;
 import com.example.service.Strategy;
 import com.example.service.StrategyType;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Service
 @Strategy(StrategyType.SECURE)
 public class SecureRandomNumberService implements RandomNumberService {
@@ -16,6 +21,7 @@ public class SecureRandomNumberService implements RandomNumberService {
 
 	@Override
 	public int next(int min, int max) {
+		System.err.println(getClass().getSimpleName());
 		return random.nextInt(max - min + 1) + min;
 	}
 
