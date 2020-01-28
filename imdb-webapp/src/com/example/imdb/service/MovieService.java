@@ -1,4 +1,5 @@
 package com.example.imdb.service;
+
 import java.util.Collection;
 
 import com.example.imdb.entity.Director;
@@ -8,7 +9,7 @@ import com.example.imdb.model.CriteriaBean;
 
 /**
  * 
- * @author Binnur Kurt
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
  *
  */
 public interface MovieService {
@@ -20,8 +21,7 @@ public interface MovieService {
 
 	Collection<Movie> findAllMoviesByDirectorId(int directorId);
 
-	Collection<Movie> findAllMoviesByYearRangeAndGenre(String genre,
-			int fromYear, int toYear);
+	Collection<Movie> findAllMoviesByYearRangeAndGenre(String genre, int fromYear, int toYear);
 
 	Collection<Movie> findAllMoviesByGenre(String genre);
 
