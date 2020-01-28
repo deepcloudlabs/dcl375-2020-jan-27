@@ -10,25 +10,14 @@
 </head>
 <body>
 	<form action="list" method="post">
-		<label for="continent">Continent:</label> <select id="continent"
-			name="continent">
-			<c:forEach items="${continents}" var="continent">
-				<c:choose>
-					<c:when test="${param.continent eq continent}">
-						<option selected>${continent}</option>
-					</c:when>
-					<c:otherwise>
-						<option>${continent}</option>
-					</c:otherwise>
-
-				</c:choose>
-			</c:forEach>
-		</select>
+		<util:select name="continent" 
+		             label="Continent" 
+		             options="${continents}"></util:select>
 		<button>List</button>
 	</form>
-    <util:table fields="code,name,population,surfaceArea,gnp" 
+    <util:table fields="code,name,surfaceArea,population" 
                 items="${countries}" 
-                columns="Code,Name,Population,Surface Area,GNP"></util:table>
+                columns="Code,Name,Surface Area,Population"></util:table>
 </body>
 </html>
 
