@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="util" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>World Countries</title>
 </head>
 <body>
 	<form action="list" method="post">
@@ -25,32 +26,9 @@
 		</select>
 		<button>List</button>
 	</form>
-	<c:if test="${not empty countries}">
-		<table>
-			<thead>
-				<tr>
-					<th>No</th>
-					<th>Code</th>
-					<th>Name</th>
-					<th>Population</th>
-					<th>Surface Area</th>
-					<th>GNP</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${countries}" var="country" varStatus="status">
-					<tr>
-						<td>${status.index + 1}</td>
-						<td>${country.code}</td>
-						<td>${country.name}</td>
-						<td>${country.population}</td>
-						<td>${country.surfaceArea}</td>
-						<td>${country.gnp}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</c:if>
+    <util:table fields="code,name,population,surfaceArea,gnp" 
+                items="${countries}" 
+                columns="Code,Name,Population,Surface Area,GNP"></util:table>
 </body>
 </html>
 
