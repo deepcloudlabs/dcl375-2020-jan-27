@@ -1,4 +1,10 @@
 package com.example.world.dao;
-public interface WorldDao extends CountryDao,CityDao {
+
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
+public interface WorldDao extends CountryDao, CityDao {
 
 }

@@ -4,6 +4,11 @@ import java.util.Set;
 
 import com.example.world.entity.Country;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public interface CountryDao {
 	Country findCountryByCode(String code);
 

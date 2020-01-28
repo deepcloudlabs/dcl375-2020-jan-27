@@ -1,8 +1,14 @@
 package com.example.world.dao;
+
 import java.util.List;
 
 import com.example.world.entity.City;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public interface CityDao {
 	City findCityById(int id);
 

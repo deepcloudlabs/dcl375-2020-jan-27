@@ -1,4 +1,10 @@
 package com.example.world.entity;
+
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 public class City {
 	private int id;
 	private String name;
@@ -71,8 +77,8 @@ public class City {
 
 	@Override
 	public String toString() {
-		return "City [id=" + id + ", name=" + name + ", population="
-				+ population + ", countryCode=" + countryCode + "]";
+		return "City [id=" + id + ", name=" + name + ", population=" + population + ", countryCode=" + countryCode
+				+ "]";
 	};
 
 }
