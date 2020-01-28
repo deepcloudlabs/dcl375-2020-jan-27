@@ -7,14 +7,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
+/**
+ * 
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
+ *
+ */
 @Configuration
-@ComponentScan(basePackages = {
-	"com.example.imdb.service.business"	
-})
-@PropertySource({
-	"classpath:database.properties",
-	"classpath:security.properties"
-})
+@ComponentScan(basePackages = { "com.example.imdb.service.business" })
+@PropertySource({ "classpath:database.properties", "classpath:security.properties" })
 public class AppConfig {
 	@Value("${db.hostname}")
 	private String hostname;
@@ -26,10 +26,10 @@ public class AppConfig {
 	private String password;
 	@Value("${db.name:mysql}")
 	private String databaseName;
+
 	@PostConstruct
 	public void init() {
-		System.out.println(username + ":" + password
-				+ "@" + hostname + ":" + port);
+		System.out.println(username + ":" + password + "@" + hostname + ":" + port);
 		System.out.println(databaseName);
 	}
 }

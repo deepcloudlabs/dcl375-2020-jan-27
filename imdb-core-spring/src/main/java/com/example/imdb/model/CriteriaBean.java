@@ -1,11 +1,14 @@
 package com.example.imdb.model;
+
 import java.util.Collection;
 import java.util.Collections;
 
 import com.example.imdb.entity.Movie;
+
+
 /**
  * 
- * @author Binnur Kurt
+ * @author Binnur Kurt <binnur.kurt@gmail.com>
  *
  */
 public class CriteriaBean {
@@ -16,19 +19,19 @@ public class CriteriaBean {
 	private Integer genre;
 	private boolean directorSelected;
 	private Integer director;
-    private Collection<Movie> movies = Collections.emptyList();
-	
+	private Collection<Movie> movies = Collections.emptyList();
+
 	public CriteriaBean() {
 	}
 
-    public Collection<Movie> getMovies() {
-        return movies;
-    }
+	public Collection<Movie> getMovies() {
+		return movies;
+	}
 
-    public void setMovies(Collection<Movie> movies) {
-        this.movies = movies;
-    }	
-	
+	public void setMovies(Collection<Movie> movies) {
+		this.movies = movies;
+	}
+
 	public boolean isYearRangeSelected() {
 		return yearRangeSelected;
 	}
@@ -85,18 +88,11 @@ public class CriteriaBean {
 		this.director = director;
 	}
 
-
-    @Override
-    public String toString() {
-        return "CriteriaBean{" +
-                "yearRangeSelected=" + yearRangeSelected +
-                ", fromYear=" + fromYear +
-                ", toYear=" + toYear +
-                ", genreSelected=" + genreSelected +
-                ", genre=" + genre +
-                ", directorSelected=" + directorSelected +
-                ", director=" + director +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "CriteriaBean{" + "yearRangeSelected=" + yearRangeSelected + ", fromYear=" + fromYear + ", toYear="
+				+ toYear + ", genreSelected=" + genreSelected + ", genre=" + genre + ", directorSelected="
+				+ directorSelected + ", director=" + director + '}';
+	}
 
 }
