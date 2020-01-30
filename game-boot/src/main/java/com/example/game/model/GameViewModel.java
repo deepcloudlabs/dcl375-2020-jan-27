@@ -1,5 +1,6 @@
 package com.example.game.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -7,13 +8,17 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.concurrent.TimeUnit;
 
 @Component
 @SessionScope
 public class GameViewModel {
     private int secret;
     private int tries;
+    private long start;
     private List<Move> moves;
+    @Autowired
+    private GameStatistics statistics;
 
     public List<Move> getMoves() {
         return moves;
@@ -24,17 +29,19 @@ public class GameViewModel {
         secret = ThreadLocalRandom.current()
                 .nextInt(100) + 1;
         moves = new ArrayList<>();
+        start = System.currentTimeMillis();
         tries = 0;
     }
 
     public void play(int guess) {
         tries++;
         if (guess == secret) {
-            //TODO: update statistics
+            long stop = System.currentTimeMillis();
+            statistics.updateWinStatistics(tries, TimeUnit.MILLISECONDS.toSeconds(stop - start));
             initGame();
         } else {
             if (tries >= 7) {
-                //TODO: update statistics
+                statistics.updateLoseStatistics();
                 Move move = new Move(secret, "You have lost!");
                 initGame();
                 moves.add(move);

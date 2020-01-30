@@ -50,23 +50,23 @@
             </table>
             <div class="form-group">
                 <label for="wins">Wins</label>
-                <span id="wins" class="badge">0</span>
+                <span id="wins" class="badge">${statistics.wins}</span>
             </div>
             <div class="form-group">
                 <label for="loses">Loses</label>
-                <span id="loses" class="badge">0</span>
+                <span id="loses" class="badge">${statistics.loses}</span>
             </div>
             <div class="form-group">
                 <label for="total">Total</label>
-                <span id="total" class="badge">0</span>
+                <span id="total" class="badge">${statistics.total}</span>
             </div>
             <div class="form-group">
                 <label for="avgMoves">Average Moves</label>
-                <span id="avgMoves" class="badge">0</span>
+                <span id="avgMoves" class="badge">${statistics.avgWinMoves}</span>
             </div>
             <div class="form-group">
                 <label for="avgWinsTime">Average Wins Time</label>
-                <span id="avgWinsTime" class="badge">0</span>
+                <span id="avgWinsTime" class="badge">${statistics.avgWinTime}</span>
             </div>
         </div>
     </div>
