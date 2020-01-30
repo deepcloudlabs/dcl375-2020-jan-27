@@ -8,11 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.RequestScope;
+
+import javax.servlet.http.HttpServletRequest;
 
 import static java.util.stream.Collectors.joining;
 
@@ -20,6 +19,7 @@ import static java.util.stream.Collectors.joining;
 @RequestScope
 @RequestMapping("play")
 @Validated
+@SessionAttributes({"game", "statistics"})
 public class GameController {
     @Autowired
     private GameViewModel game;
@@ -43,8 +43,11 @@ public class GameController {
 
     @PostMapping
     public String play(
+            HttpServletRequest req,
             @Validated @ModelAttribute("console")
                     GameConsoleForm form, BindingResult result) {
+        System.out.println(req.getSession().getId());
+        //req.getSession().invalidate();
         if (result.hasErrors()) {
             String errMsg = result.getAllErrors()
                     .stream()

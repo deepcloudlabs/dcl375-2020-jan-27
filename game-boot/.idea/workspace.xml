@@ -71,8 +71,6 @@
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_3_RELEASE.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_6_3.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_25.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/config/ValidationConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/game/model/GameConsoleForm.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/com/example/game/GameBootApplication.class" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/target/classes/com/example/game/controller/GameController.class" afterDir="false" />
@@ -82,8 +80,6 @@
       <change afterPath="$PROJECT_DIR$/target/test-classes/com/example/game/GameBootApplicationTests.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/game/model/GameViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/game/model/GameViewModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../study-spring-aop/src/main/java/com/example/aop/ProfileAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../study-spring-aop/src/main/java/com/example/aop/ProfileAspect.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../world-spring-boot/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../world-spring-boot/src/main/resources/application.properties" afterDir="false" />
     </list>
@@ -175,7 +171,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1580366497552</updated>
-      <workItem from="1580366499911" duration="11556000" />
+      <workItem from="1580366499911" duration="11606000" />
+      <workItem from="1580384279677" duration="1236000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1580368315927</created>
@@ -205,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1580375185279</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implement bean validation">
+      <created>1580384244584</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1580384244584</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +223,8 @@
     <MESSAGE value="implement view model and controller" />
     <MESSAGE value="implement game statistics" />
     <MESSAGE value="delete zip file" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete zip file" />
+    <MESSAGE value="implement bean validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement bean validation" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -231,50 +236,50 @@
       <screen x="-1280" y="54" width="853" height="683" />
     </state>
     <state x="-1047" y="116" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580382640094" />
-    <state x="495" y="217" width="1355" height="683" key="CommitChangelistDialog2" timestamp="1580375184667">
+    <state x="495" y="217" width="1355" height="683" key="CommitChangelistDialog2" timestamp="1580384243856">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="495" y="217" width="1355" height="683" key="CommitChangelistDialog2/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580375184667" />
-    <state width="810" height="256" key="GridCell.Tab.0.bottom" timestamp="1580383964390">
+    <state x="495" y="217" width="1355" height="683" key="CommitChangelistDialog2/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580384243856" />
+    <state width="810" height="121" key="GridCell.Tab.0.bottom" timestamp="1580385602958">
       <screen x="-1280" y="54" width="853" height="683" />
     </state>
-    <state width="810" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580383964390" />
-    <state width="810" height="256" key="GridCell.Tab.0.center" timestamp="1580383964390">
+    <state width="810" height="121" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580385602958" />
+    <state width="810" height="121" key="GridCell.Tab.0.center" timestamp="1580385602957">
       <screen x="-1280" y="54" width="853" height="683" />
     </state>
-    <state width="810" height="256" key="GridCell.Tab.0.center/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580383964390" />
-    <state width="810" height="256" key="GridCell.Tab.0.left" timestamp="1580383964390">
+    <state width="810" height="121" key="GridCell.Tab.0.center/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580385602957" />
+    <state width="810" height="121" key="GridCell.Tab.0.left" timestamp="1580385602957">
       <screen x="-1280" y="54" width="853" height="683" />
     </state>
-    <state width="810" height="256" key="GridCell.Tab.0.left/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580383964390" />
-    <state width="810" height="256" key="GridCell.Tab.0.right" timestamp="1580383964390">
+    <state width="810" height="121" key="GridCell.Tab.0.left/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580385602957" />
+    <state width="810" height="121" key="GridCell.Tab.0.right" timestamp="1580385602958">
       <screen x="-1280" y="54" width="853" height="683" />
     </state>
-    <state width="810" height="256" key="GridCell.Tab.0.right/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580383964390" />
-    <state width="810" height="256" key="GridCell.Tab.1.bottom" timestamp="1580383964390">
+    <state width="810" height="121" key="GridCell.Tab.0.right/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580385602958" />
+    <state width="810" height="121" key="GridCell.Tab.1.bottom" timestamp="1580385602959">
       <screen x="-1280" y="54" width="853" height="683" />
     </state>
-    <state width="810" height="256" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580383964390" />
-    <state width="810" height="256" key="GridCell.Tab.1.center" timestamp="1580383964390">
+    <state width="810" height="121" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580385602959" />
+    <state width="810" height="121" key="GridCell.Tab.1.center" timestamp="1580385602958">
       <screen x="-1280" y="54" width="853" height="683" />
     </state>
-    <state width="810" height="256" key="GridCell.Tab.1.center/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580383964390" />
-    <state width="810" height="256" key="GridCell.Tab.1.left" timestamp="1580383964390">
+    <state width="810" height="121" key="GridCell.Tab.1.center/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580385602958" />
+    <state width="810" height="121" key="GridCell.Tab.1.left" timestamp="1580385602958">
       <screen x="-1280" y="54" width="853" height="683" />
     </state>
-    <state width="810" height="256" key="GridCell.Tab.1.left/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580383964390" />
-    <state width="810" height="256" key="GridCell.Tab.1.right" timestamp="1580383964390">
+    <state width="810" height="121" key="GridCell.Tab.1.left/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580385602958" />
+    <state width="810" height="121" key="GridCell.Tab.1.right" timestamp="1580385602959">
       <screen x="-1280" y="54" width="853" height="683" />
     </state>
-    <state width="810" height="256" key="GridCell.Tab.1.right/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580383964390" />
+    <state width="810" height="121" key="GridCell.Tab.1.right/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580385602959" />
     <state x="-1280" y="54" key="SettingsEditor" timestamp="1580369197893">
       <screen x="-1280" y="54" width="853" height="683" />
     </state>
     <state x="-1280" y="54" key="SettingsEditor/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580369197893" />
-    <state x="-1260" y="133" key="Vcs.Push.Dialog.v2" timestamp="1580375186761">
+    <state x="-1260" y="133" key="Vcs.Push.Dialog.v2" timestamp="1580384247053">
       <screen x="-1280" y="54" width="853" height="683" />
     </state>
-    <state x="-1260" y="133" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580375186761" />
+    <state x="-1260" y="133" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1280.54.853.683@-1280.54.853.683" timestamp="1580384247053" />
     <state x="-1196" y="179" key="run.anything.popup" timestamp="1580382022735">
       <screen x="-1280" y="54" width="853" height="683" />
     </state>
