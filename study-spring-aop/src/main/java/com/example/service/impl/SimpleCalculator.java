@@ -13,10 +13,10 @@ import com.example.service.Calculator;
  */
 @Service
 @Lazy
-@Profile
 public class SimpleCalculator implements Calculator {
 
 	@Override
+	@Profile
 	public double add(double x, double y) {
 		return x + y;
 	}
