@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Number Guess Game</title>
@@ -11,7 +12,8 @@
             <h3 class="panel-title">Game Console</h3>
         </div>
         <div class="panel-body">
-            <form action="???" method="post">
+            <c:url var="actionUrl" value="/action/play"/>
+            <form action="${actionUrl}" method="post">
                 <div class="form-group">
                     <label for="guess">Guess</label>
                     <input type="number"
@@ -30,20 +32,22 @@
             <h3 class="panel-title">Game Statistics</h3>
         </div>
         <div class="panel-body">
-             <table class="table table-bordered table-striped table-responsive table-hover">
-                 <thead>
+            <table class="table table-bordered table-striped table-responsive table-hover">
+                <thead>
+                <tr>
+                    <th>Guess</th>
+                    <th>Message</th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach items="${game.moves}" var="move">
                     <tr>
-                        <th>Guess</th>
-                        <th>Message</th>
+                        <td>${move.guess}</td>
+                        <td>${move.message}</td>
                     </tr>
-                 </thead>
-                 <tbody>
-                    <tr>
-                        <td>50</td>
-                        <td>Pick Larger</td>
-                    </tr>
-                 </tbody>
-             </table>
+                </c:forEach>
+                </tbody>
+            </table>
             <div class="form-group">
                 <label for="wins">Wins</label>
                 <span id="wins" class="badge">0</span>
