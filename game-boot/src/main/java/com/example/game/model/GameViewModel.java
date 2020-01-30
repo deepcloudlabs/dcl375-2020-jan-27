@@ -34,6 +34,7 @@ public class GameViewModel {
     }
 
     public void play(int guess) {
+        checkMove(guess);
         tries++;
         if (guess == secret) {
             long stop = System.currentTimeMillis();
@@ -52,6 +53,14 @@ public class GameViewModel {
             }
         }
 
+    }
+
+    private void checkMove(int guess) {
+        for (Move move : moves) {
+            if (guess == move.getGuess())
+                throw new IllegalArgumentException(
+                        "You have already entered " + guess);
+        }
     }
 
     private String createMessage(int guess) {

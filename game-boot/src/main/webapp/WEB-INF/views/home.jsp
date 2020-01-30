@@ -16,14 +16,18 @@
             <form action="${actionUrl}" method="post">
                 <div class="form-group">
                     <label for="guess">Guess</label>
-                    <input type="number"
+                    <input type="text"
                            class="form-control"
-                           min="1" max="100"
                            id="guess"
                            value="${param.guess}"
                            name="guess"/>
                     <button class="btn btn-success">Play</button>
                 </div>
+                <c:if test="${not empty console.errorMessage}">
+                    <div class="form-group">
+                        <span class="alert alert-danger">${console.errorMessage}</span>
+                    </div>
+                </c:if>
             </form>
         </div>
     </div>
