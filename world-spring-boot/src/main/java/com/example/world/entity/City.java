@@ -1,20 +1,15 @@
 package com.example.world.entity;
 
-import javax.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 /**
  * @author Binnur Kurt <binnur.kurt@gmail.com>
  */
-@Entity
-@Table(name = "city")
 public class City {
-    @Id
+    @Field("_id")
     private int id;
     private String name;
     private Integer population;
-    @JoinColumn(name = "countrycode")
-    @ManyToOne
-    private Country country;
 
     public City() {
     }
@@ -43,14 +38,6 @@ public class City {
         this.population = population;
     }
 
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
-    }
-
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -75,8 +62,7 @@ public class City {
 
     @Override
     public String toString() {
-        return "City [id=" + id + ", name=" + name + ", population=" + population + ", countryCode=" + country.getCode()
-                + "]";
+        return "City [id=" + id + ", name=" + name + ", population=" + population + "]";
     }
 
     ;

@@ -1,8 +1,8 @@
 package com.example.world.entity;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.Set;
 
 /**
@@ -10,32 +10,26 @@ import java.util.Set;
  * @author Binnur Kurt <binnur.kurt@gmail.com>
  *
  */
-@Entity
-@Table(name="country")
+@Document(collection = "countries1")
 public class Country {
-	@Id
-	private String code;
-	private String name;
-	private String continent;
-	@Column(name="surfacearea")
-	private Double surfaceArea;
-	private Integer population;
-	private Double gnp;
-	@JoinColumn(name="capital")
-	@OneToOne
-	private City capital;
-	@OneToMany(mappedBy = "country",orphanRemoval = true)
-	private Set<City> cities;
+    @Id
+    private String code;
+    private String name;
+    private String continent;
+    private Double surfaceArea;
+    private Integer population;
+    private Double gnp;
+    private Integer capital;
+    private Set<City> cities;
 
+    public Country() {
+    }
 
-	public Country() {
-	}
+    public String getCode() {
+        return code;
+    }
 
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
+    public void setCode(String code) {
 		this.code = code;
 	}
 
@@ -61,45 +55,49 @@ public class Country {
 
 	public void setSurfaceArea(Double surfaceArea) {
 		this.surfaceArea = surfaceArea;
-	}
+    }
 
-	public Double getGnp() {
-		return gnp;
-	}
+    public Double getGnp() {
+        return gnp;
+    }
 
-	public void setGnp(Double gnp) {
-		this.gnp = gnp;
-	}
+    public void setGnp(Double gnp) {
+        this.gnp = gnp;
+    }
 
-	public City getCapital() {
-		return capital;
-	}
+    public Integer getCapital() {
+        return capital;
+    }
 
-	public void setCapital(City capital) {
-		this.capital = capital;
-	}
+    public void setCapital(Integer capital) {
+        this.capital = capital;
+    }
 
-	public void setPopulation(Integer population) {
-		this.population = population;
-	}
+    public void setPopulation(Integer population) {
+        this.population = population;
+    }
 
-	public Integer getPopulation() {
-		return population;
-	}
+    public Integer getPopulation() {
+        return population;
+    }
 
-	public Set<City> getCities() {
-		return cities;
-	}
+    public Set<City> getCities() {
+        return cities;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((code == null) ? 0 : code.hashCode());
-		return result;
-	}
+    public void setCities(Set<City> cities) {
+        this.cities = cities;
+    }
 
-	@Override
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((code == null) ? 0 : code.hashCode());
+        return result;
+    }
+
+    @Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
