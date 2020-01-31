@@ -12,6 +12,8 @@ public class App {
 		System.out.println(calc.getClass());
 		calc.add(3, 5);
 		calc.sub(7, 4);
+		calc.mul(3, 2);
+		calc.div(5, 3);
 		try {
 			calc.div(4, 0);
 		} catch (Exception e) {
