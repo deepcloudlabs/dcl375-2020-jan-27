@@ -1,84 +1,84 @@
 package com.example.world.entity;
 
+import javax.persistence.*;
+
 /**
- * 
  * @author Binnur Kurt <binnur.kurt@gmail.com>
- *
  */
+@Entity
+@Table(name = "city")
 public class City {
-	private int id;
-	private String name;
-	private int population;
-	private String countryCode;
+    @Id
+    private int id;
+    private String name;
+    private Integer population;
+    @JoinColumn(name = "countrycode")
+    @ManyToOne
+    private Country country;
 
-	public City() {
-	}
+    public City() {
+    }
 
-	public City(int id, String name, String countryCode, int population) {
-		this.id = id;
-		this.name = name;
-		this.population = population;
-		this.countryCode = countryCode;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public Integer getPopulation() {
+        return population;
+    }
 
-	public int getPopulation() {
-		return population;
-	}
+    public void setPopulation(Integer population) {
+        this.population = population;
+    }
 
-	public void setPopulation(int population) {
-		this.population = population;
-	}
+    public Country getCountry() {
+        return country;
+    }
 
-	public String getCountryCode() {
-		return countryCode;
-	}
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 
-	public void setCountryCode(String countryCode) {
-		this.countryCode = countryCode;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + id;
+        return result;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + id;
-		return result;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        City other = (City) obj;
+        if (id != other.id)
+            return false;
+        return true;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		City other = (City) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
+    @Override
+    public String toString() {
+        return "City [id=" + id + ", name=" + name + ", population=" + population + ", countryCode=" + country.getCode()
+                + "]";
+    }
 
-	@Override
-	public String toString() {
-		return "City [id=" + id + ", name=" + name + ", population=" + population + ", countryCode=" + countryCode
-				+ "]";
-	};
+    ;
 
 }

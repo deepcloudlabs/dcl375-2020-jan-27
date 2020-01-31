@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.example.world.dao.CountryDao;
+import com.example.world.repository.CountryRepository;
 
 /**
  * 
@@ -21,11 +21,11 @@ import com.example.world.dao.CountryDao;
 @RequestMapping("list")
 public class WorldController {
 	@Autowired
-	private CountryDao countryDao;
+	private CountryRepository countryRepository;
 
 	@ModelAttribute("continents")
 	public Set<String> getAllContinents() {
-		return countryDao.getAllContinents();
+		return countryRepository.getAllContinents();
 	}
 
 	@GetMapping
@@ -36,7 +36,7 @@ public class WorldController {
 	@PostMapping
 	public ModelAndView list(ModelAndView mv, String continent) {
 		mv.setViewName("home");
-		mv.getModelMap().addAttribute("countries", countryDao.findCountriesByContinent(continent));
+		mv.getModelMap().addAttribute("countries", countryRepository.findByContinent(continent));
 		return mv;
 	}
 }

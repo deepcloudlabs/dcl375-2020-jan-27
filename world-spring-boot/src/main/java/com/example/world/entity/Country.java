@@ -1,38 +1,34 @@
 package com.example.world.entity;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * 
  * @author Binnur Kurt <binnur.kurt@gmail.com>
  *
  */
+@Entity
+@Table(name="country")
 public class Country {
+	@Id
 	private String code;
 	private String name;
 	private String continent;
-	private double surfaceArea;
-	private int population;
-	private double gnp;
-	private int capital;
-	private List<City> cities;
-	{
-		cities = new ArrayList<>();
-	}
+	@Column(name="surfacearea")
+	private Double surfaceArea;
+	private Integer population;
+	private Double gnp;
+	@JoinColumn(name="capital")
+	@OneToOne
+	private City capital;
+	@OneToMany(mappedBy = "country",orphanRemoval = true)
+	private Set<City> cities;
+
 
 	public Country() {
-	}
-
-	public Country(String code, String name, String continent, int population, double surfaceArea, double gnp,
-			int capital) {
-		this.code = code;
-		this.name = name;
-		this.continent = continent;
-		this.surfaceArea = surfaceArea;
-		this.population = population;
-		this.capital = capital;
-		this.gnp = gnp;
 	}
 
 	public String getCode() {
@@ -59,39 +55,39 @@ public class Country {
 		this.continent = continent;
 	}
 
-	public double getSurfaceArea() {
+	public Double getSurfaceArea() {
 		return surfaceArea;
 	}
 
-	public void setSurfaceArea(double surfaceArea) {
+	public void setSurfaceArea(Double surfaceArea) {
 		this.surfaceArea = surfaceArea;
 	}
 
-	public double getGnp() {
+	public Double getGnp() {
 		return gnp;
 	}
 
-	public void setGnp(double gnp) {
+	public void setGnp(Double gnp) {
 		this.gnp = gnp;
 	}
 
-	public int getCapital() {
+	public City getCapital() {
 		return capital;
 	}
 
-	public void setCapital(int capital) {
+	public void setCapital(City capital) {
 		this.capital = capital;
 	}
 
-	public void setPopulation(int population) {
+	public void setPopulation(Integer population) {
 		this.population = population;
 	}
 
-	public int getPopulation() {
+	public Integer getPopulation() {
 		return population;
 	}
 
-	public List<City> getCities() {
+	public Set<City> getCities() {
 		return cities;
 	}
 
