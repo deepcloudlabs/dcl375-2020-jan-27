@@ -1,14 +1,15 @@
 package com.example.world.repository;
 
 import com.example.world.entity.Country;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Set;
 
-/**
- * @author Binnur Kurt <binnur.kurt@gmail.com>
- */
-public interface CountryRepository extends MongoRepository<Country, String> {
-
+public interface CountryRepository extends JpaRepository<Country, String> {
     List<Country> findByContinent(String continent);
+
+    @Query("select distinct c.continent from Country c")
+    Set<String> getAllContinents();
 }

@@ -1,26 +1,23 @@
-<%@ taglib prefix="c" 
-           uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<%@ attribute name="options" 
-              type="java.util.Collection"
-	          rtexprvalue="true" required="true"%>
+<%@ attribute name="options" type="java.util.Collection" required="true"
+              rtexprvalue="true" %>
 
-<%@ attribute name="label" rtexprvalue="false" 
-              required="true"%>
+<%@ attribute name="name" required="true" rtexprvalue="false" %>
 
-<%@ attribute name="name" rtexprvalue="false" 
-              required="true"%>
-
-<label for="${name}">${label}:</label> 
-<select id="${name}" name="${name}">
-	<c:forEach items="${options}" var="option">
-		<c:choose>
-			<c:when test="${param[name] eq option}">
-				<option selected>${option}</option>
-			</c:when>
-			<c:otherwise>
-				<option>${option}</option>
-			</c:otherwise>
-		</c:choose>
-	</c:forEach>
+<%@ attribute name="label" required="true" rtexprvalue="false" %>
+<div class="form-group">
+    <label for="${name}">${label}</label> <select id="${name}"
+                                                  class="form-control" name="${name}">
+    <c:forEach items="${options}" var="opt">
+        <c:choose>
+            <c:when test="${opt eq param[name]}">
+                <option selected label="${opt}" value="${opt}">${opt}</option>
+            </c:when>
+            <c:otherwise>
+                <option label="${opt}" value="${opt}">${opt}</option>
+            </c:otherwise>
+        </c:choose>
+    </c:forEach>
 </select>
+</div>
